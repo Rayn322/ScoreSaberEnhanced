@@ -114,7 +114,7 @@ export function setup_dl_link_leaderboard(): void {
 		if (!data)
 			return;
 		show_beatsaver_song_data(beatsaver_box, data);
-		const data2 = await beastsaber.get_data(data.key);
+		const data2 = await beastsaber.get_data(data.id);
 		if (!data2)
 			return;
 		show_beastsaber_song_data(beastsaber_box, data2);
@@ -124,9 +124,9 @@ export function setup_dl_link_leaderboard(): void {
 function show_beatsaver_song_data(elem: HTMLElement, data: beatsaver.IBeatSaverData) {
 	intor(elem,
 		create("div", { title: "Downloads" }, `${data.stats.downloads} 💾`),
-		create("div", { title: "Upvotes" }, `${data.stats.upVotes} 👍`),
-		create("div", { title: "Downvotes" }, `${data.stats.downVotes} 👎`),
-		create("div", { title: "Beatmap Rating" }, `${(data.stats.rating * 100).toFixed(2)}% 💯`),
+		create("div", { title: "Upvotes" }, `${data.stats.upvotes} 👍`),
+		create("div", { title: "Downvotes" }, `${data.stats.downvotes} 👎`),
+		create("div", { title: "Beatmap Rating" }, `${(data.stats.score * 100).toFixed(2)}% 💯`),
 		create("div", { title: "Beatmap Duration" }, `${number_to_timespan(data.metadata.duration)} ⏱`),
 	);
 }

@@ -55,7 +55,7 @@ export async function fetch_hash(link: string): Promise<string | undefined> {
 export async function oneclick_install_byhash(song_hash: string): Promise<boolean> {
 	const song_info = await beatsaver.get_data_by_hash(song_hash);
 	if (!song_info) return false;
-	await oneclick_install(song_info.key);
+	await oneclick_install(song_info.id);
 	return true;
 }
 
